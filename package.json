@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "postinstall": "./node_modules/.bin/rn-nodeify --hack --install --yarn"
+    "postinstall": "./node_modules/.bin/rn-nodeify --hack --install "
   },
   "dependencies": {
     "@ethersproject/shims": "^5.5.0",
