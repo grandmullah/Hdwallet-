@@ -15,12 +15,11 @@ export default function Account({navigation}) {
          let ee  = await generateMnemonicf()
          const mnemonic = bip39.entropyToMnemonic(ee)
          setMnemonic(mnemonic)
-        // const cc =  ethers.Wallet.fromMnemonic(mnemonic,`m/44'/60'/0'/0/0`)
-        //  console.log(cc.address)
+        // 
     }
     
   
-  const save = async()=>{
+  const save = async({navigation})=>{
      let saved = await SecureStore.setItemAsync('mnemonic',mnemonic)
      
      if(saved){

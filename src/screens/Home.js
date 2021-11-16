@@ -11,10 +11,11 @@ import { ethers } from "ethers";
 
 
 export default function Home() {
-
+   
     
     const [mnemonic, setMnemonic ]  = React.useState('')
-
+    const [address,setAddress] = React.useState()
+ 
     React.useEffect(()=>{
        getValueFor('mnemonic')
       // console.log(status)
@@ -25,9 +26,11 @@ export default function Home() {
       let result = await SecureStore.getItemAsync(key);
       console.log(result)
       if (result) {
-        setLaunchCondition(result)
+       setMnemonic(result)
+       const cc =  ethers.Wallet.fromMnemonic(result,`m/44'/60'/0'/0/0`)
+        setAddress(cc.address)
       } else {
-        setLaunchCondition(false)
+       setMnemonic(false)
       }
     }
      
@@ -36,6 +39,7 @@ export default function Home() {
   return (
     <SafeAreaView>
       <Text>{mnemonic}</Text>
+      <Text>{address}</Text>
      </SafeAreaView>
   );
 }
