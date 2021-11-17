@@ -30,6 +30,7 @@ export default function Home() {
  
     React.useEffect(()=>{
        getValueFor('mnemonic')
+       getbalance()
       // console.log(status)
      
     },[])
@@ -38,9 +39,7 @@ export default function Home() {
       let result = await SecureStore.getItemAsync(key);
       // let ff =await Provider.getBlock(100004)
       // console.log(ff)
-      const balance  = await Provider.getBalance(address)
-      const balanceInEth = ethers.utils.formatEther(balance)
-      console.log(balanceInEth)
+
 
       console.log(result)
       if (result) {
@@ -54,7 +53,9 @@ export default function Home() {
      
      const getbalance = async () => {
    
-
+      const balance  = await Provider.getBalance(address)
+      const balanceInEth = ethers.utils.formatEther(balance)
+      console.log(balanceInEth)
      }
     
   return (
