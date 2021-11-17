@@ -19,12 +19,12 @@ export default function Account({navigation}) {
     }
     
   
-  const save = async({navigation})=>{
+  const save = async()=>{
      let saved = await SecureStore.setItemAsync('mnemonic',mnemonic)
+      console.log("saved")
      
-     if(saved){
        navigation.navigate('Home')
-     }
+     
   }
     
 
